@@ -1,0 +1,41 @@
+<!--
+HTML template for the portfolio's home page. Includes short "about me" and displays the grid with each work overview.
+-->
+
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<section style="background:transparent" class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Hi, I'm Victoria!</h1>
+        <br>
+        <p>
+            <img class="img-fluid" src="{% static 'img/profpic.png' %}" width="30%" height="30%">
+        </p>
+        <br>
+        <p class="lead text-muted">I'm a freshman at the University of Pennsylvania studying computer science with a
+            concentration in Digital Media Design. I am passionate about the intersection of art and technology,
+            and am interested in UI/UX design, virtual reality, and product management. In my free time, I enjoy
+            cooking, Broadway musicals, and playing tennis.</p>
+    </div>
+</section>
+
+<center><h1>Artworks</h1></center>
+<br>
+<div class="row">
+    {% for work in works %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{% static work.image %}">
+            <div class="card-body">
+                <h5 class="card-title">{{ work.title }}</h5>
+                <p class="card-text">{{ work.medium }}</p>
+                <a href="{% url 'work_detail' work.pk %}" class="btn btn-primary">
+                    View Details
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

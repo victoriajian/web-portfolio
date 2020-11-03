@@ -1,0 +1,22 @@
+<!--
+HTML template for a work's details page. Displays all information about the work.
+-->
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<h1>{{ work.title }}</h1>
+<div class="row">
+    <div class="col-md-8">
+        <img src="{% static work.image %}" alt="" width="100%">
+    </div>
+    <div class="col-md-4">
+        <p>{{ work.description }}</p>
+        <h5>Date:</h5>
+        <p>{{ work.date }}</p>
+        <h5>Medium:</h5>
+        <p>{{ work.medium }}</p>
+    </div>
+</div>
+{% endblock %}

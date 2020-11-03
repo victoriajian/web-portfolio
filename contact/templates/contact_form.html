@@ -1,0 +1,17 @@
+<!--
+HTML template for the blank contact form page.
+-->
+
+{% extends 'base.html' %}
+
+{% block title %}Contact - {{ block.super }}{% endblock %}
+
+{% block page_content %}
+<br>
+<h1>Contact</h1>
+<form role="form" action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Send</button>
+</form>
+{% endblock %}
